@@ -1,0 +1,109 @@
+<!--Un formulaire d’inscription original-->
+<!--Les formulaires de contact ou d’inscription sont une partie indispensable de tout site web. Ils sont souvent implémentés dans une page séparée et font rarement preuve de créativité. Cet exemple illustre comment créer avec jQuery un formulaire disponible dès la page d’accueil.-->
+<!doctype html> 
+<html lang="fr"> 
+<head> 
+<meta charset="utf-8"> 
+<title>jQuery</title> 
+<script src="jquery.js"></script> 
+<script> 
+    //Au chargement du DOM et au clic de la division identifiée par contact.
+    $(document).ready(function(){ 
+        $("#contact").click(function(){ 
+            //Si le formulaire de contact (contactForm) est caché (is(":hidden")), celui-ci apparaît en glissant lentement vers le bas (slideDown("slow")).
+            if ($("#contactForm").is(":hidden")){ 
+                $("#contactForm").slideDown("slow"); 
+                //Sinon, il remonte (slideUp("slow")) pour trouver sa position initiale.
+            } else { 
+                $("#contactForm").slideUp("slow"); 
+            } 
+        });                
+    }); 
+    //Reste à définir la fonction (closeForm()) associée au bouton de soumission. Celle-ci fait remonter le formulaire (slideUp("slow")) à sa position initiale.               
+    function closeForm(){        
+        $("#contactForm").slideUp("slow"); 
+    } 
+</script> 
+<style> 
+    body{ 
+        margin: 0px; 
+        font-family: Arial, Sans-Serif; 
+        font-size: 0.75em; 
+    } 
+    .box { 
+        margin: 0px auto; 
+        background-color: #ffffff; 
+        text-align: justify; 
+        position: relative; 
+    } 
+    .content { 
+        padding: 20px 30px; 
+    } 
+    #container { 
+        position: absolute; 
+        left: 100px; 
+        float: right; 
+    } 
+    #contactForm { 
+        height: 177px; 
+        width: 248px; 
+        background-color: #9cf; 
+        display: none; 
+    } 
+    #contactForm fieldset { 
+        padding: 30px; 
+        border: none; 
+    } 
+    #contactForm label { 
+        display: block; 
+        color: black; 
+    } 
+    #contactForm input[type=text] { 
+        display: block; 
+        border: solid 1px #4d3a24; 
+        margin-bottom: 10px; 
+        height: 24px; 
+    } 
+    #contactForm input[type=submit] { 
+        background-color: #4d3a24; 
+        border: solid 1px #23150c; 
+        color: #fecd28; 
+        padding: 5px; 
+    } 
+    #contact { 
+        height: 30px; 
+        width: 246px; 
+        background-color: #9cf; 
+        border: 1px solid black; 
+        display: block; 
+        cursor: pointer; 
+        font-size: 14px; 
+        padding-top: 7px; 
+        text-align: center; 
+    } 
+    p { 
+        margin-top: 25px; 
+    } 
+</style> 
+</head> 
+<body> 
+<div class="box"> 
+    <div id="container"> 
+        <div id="contactForm"> 
+        <fieldset> 
+            <label for="Name">Nom *</label> 
+            <input id="name" type="text"> 
+            <label for="Email">Adresse Email *</label> 
+            <input id="Email" type="text"> 
+            <input id="envoi" type="submit" name= 
+"submit" onclick="closeForm()"> 
+        </fieldset> 
+        </div> 
+        <div id="contact">Formulaire d'inscription</div> 
+    </div>    
+    <div class="content"> 
+        <p>Lorem ipsum dolor...</p>    
+    </div> 
+</div> 
+</body> 
+</html>

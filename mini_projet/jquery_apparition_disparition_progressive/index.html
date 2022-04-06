@@ -1,0 +1,45 @@
+<!--Une apparition et disparition progressive d'une image-->
+<!doctype html> 
+<html lang="fr"> 
+<head> 
+<meta charset="utf-8"> 
+<title>jQuery</title> 
+<script src="jquery.js"></script> 
+<script> 
+    //chargement de DOM
+    $(document).ready(function(){ 
+        //Au click sur l'élément avec l'id boutonFadeOut 
+        $("#boutonFadeOut").on("click", function () { 
+            //l'image apparaisse progressivement 
+            $("#image").fadeOut(); 
+        });
+        //Au click sur l'élément avec l'id boutonFadeIn 
+        $("#boutonFadeIn").on("click", function () { 
+            //l'image disparaisse progressivement 
+            $("#image").fadeIn(2000); 
+        }); 
+    }); 
+</script> 
+<style>  
+    #bloc{ 
+        width: 210px; 
+        height: 117px; 
+        border: 1px solid black; 
+        margin-top: 15px; 
+    } 
+    #image { 
+        margin: 5px; 
+    } 
+</style> 
+</head> 
+<body> 
+<div> 
+    <input type="button" id="boutonFadeOut" value="Fade Out"> 
+    <input type="button" id="boutonFadeIn" value="Fade In"> 
+</div> 
+<div id="bloc"> 
+    <img src="eole3.jpg" alt="" width="200" height="107" id="image"> 
+</div> 
+</body> 
+</html>
+ 

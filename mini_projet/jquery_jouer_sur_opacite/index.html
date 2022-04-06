@@ -1,0 +1,39 @@
+<!--Jouer sur l’opacité-->
+<!--Les images s’affichent avec une opacité à 50 %. Au survol, elles s’affichent avec une opacité à 100 %.-->
+<!doctype html> 
+<html lang="fr"> 
+<head> 
+<meta charset="utf-8"> 
+<title>jQuery</title> 
+<script src="jquery.js"></script> 
+<script> 
+    //chargement de DOM
+    $(document).ready(function(){ 
+        //L'élément avec la classe image affichées en grisé avec une opacité de 0,5.
+        $(".image").fadeTo("slow", 0.5); 
+        //Au survol de l'élément avec l'id image
+        $(".image").hover(function(){
+            //cet élément affiche normalement (opacité 1). 
+            $(this).fadeTo("slow", 1.0);
+        //Lorsque le curseur quitte l'élément
+        },function(){ 
+            //celle-ci revient à son état initial (opacité 0,5).
+            $(this).fadeTo("fast", 0.5); 
+        }); 
+    }); 
+</script> 
+<style> 
+    .image { 
+        border: 1px solid black; 
+       margin-left: 8px; 
+    } 
+</style> 
+</head> 
+<body> 
+<p>Survolez l'image avec le curseur de la souris</p> 
+<div> 
+    <img src="eole1.jpg" alt="" width="120" height="180" class="image"> 
+    <img src="eole2.jpg" alt="" width="120" height="180" class="image"> 
+</div> 
+</body> 
+</html>

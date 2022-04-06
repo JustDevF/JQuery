@@ -1,0 +1,64 @@
+<!--Menu accordéon-->
+<!--Présentons un menu vertical qui se déroule et se rétracte au clic de la souris.-->
+<!doctype html> 
+<html lang="fr"> 
+<head> 
+<meta charset="utf-8"> 
+<title>jQuery</title> 
+<script src="jquery.js"></script> 
+<script>
+    //Chargement de DOM
+    $(document).ready(function(){
+        //Le p de la classe accordeon est caché  
+        $(".accordeon p").hide(); 
+        //Au click sur h3 de la classe accordeon
+        $(".accordeon h3").on("click", function(){
+            //L'élément actuel appelle l’élément suivant. et déroule le paragraphe qui contient les sous-menus. Les éléments frères de l’élément <p> qui sont visibles, soit les autres sous-menus, sont glissés vers le haut pour ainsi disparaître.  
+            $(this).next("p").slideToggle("slow").siblings("p:visible").slideUp("slow"); 
+            //Activiation de la classe sur l'élément courant
+            $(this).toggleClass("active"); 
+            //Supprission de la classe active
+            $(this).siblings("h3").removeClass("active"); 
+        }); 
+    }); 
+</script> 
+<style> 
+    .accordeon { 
+        width: 250px; 
+        border-bottom: solid 1px black; 
+    } 
+    .accordeon h3 { 
+        margin: 0; 
+        background: #9cf url(arrow.gif) no-repeat right -51px; 
+        padding: 7px 15px; 
+        font: bold 0.9em Arial, sans-serif; 
+        border: solid 1px black; 
+        border-bottom: none; 
+        cursor: pointer; 
+    } 
+    .accordeon h3:hover { 
+        background-color: #ccecff; 
+    } 
+    .accordeon h3.active { 
+        background-position: right 5px; 
+    } 
+    .accordeon p { 
+        margin: 0; 
+        font: 0.9em Arial, sans-serif; 
+        padding: 10px 15px 10px; 
+        border-left: solid 1px black; 
+        border-right: solid 1px black; 
+    } 
+</style> 
+</head> 
+<body> 
+<div class="accordeon"> 
+    <h3>Hypertext Markup Language</h3> 
+    <p>- Version 3.2<br />- Version 4.1<br>- Version 5</p> 
+    <h3>Cascading Style Sheets</h3> 
+    <p>- Version 2<br />- Version 2.1<br>- Version 3</p> 
+    <h3>JavaScript</h3> 
+    <p>- DOM<br />- Ajax<br>- jQuery</p> 
+</div> 
+</body> 
+</html>

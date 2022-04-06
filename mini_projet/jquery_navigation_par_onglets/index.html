@@ -1,0 +1,128 @@
+<!--Cette application est fréquemment rencontrée. Selon l’onglet cliqué, un contenu différent s’affiche dans la page ou plus précisément dans une division de celle-ci.-->
+<!doctype html> 
+<html lang="fr"> 
+<head> 
+<meta charset="utf-8"> 
+<title>jQuery</title> 
+<script src="jquery.js"></script> 
+<script> 
+    //Au chargement de la page
+    $(document).ready(function(){ 
+        //les éléments <div> enfants de <div id="menu"> sont chargés dans la variable boite_page.
+        var boites_page = $('div.menu > div'); 
+        //les éléments <div> enfants de <div id="menu"> sont chargés dans la variable boite_page.
+        boites_page.hide().filter(':first').show(); 
+        //Au clic sur un onglet, le contenu précédent est caché (hide()) et la méthode de filtrage (filter(this.hash)) est appliquée pour retrouver la page concernée. Celle-ci est alors affichée (show()).
+        $('div.menu ul.navigation a').click(function () { 
+            //La propriété JavaScript (classique) window.location.hash qui permet de récupérer l’ancre d’une URL est utilisée ici.
+            boites_page.hide(); 
+            boites_page.filter(this.hash).show();
+            //La classe selected est appliquée à l’onglet sélectionné par l’utilisateur.
+            $('div.menu ul.navigation a').removeClass('selected'); 
+            $(this).addClass('selected'); 
+            return false; 
+        }); 
+    }); 
+</script> 
+<style> 
+    body { 
+        padding: 0px;  
+        margin: 15px;  
+        font: 90% arial, sans-serif; 
+    } 
+    ul.navigation { 
+        padding: 0px;  
+        list-style-type: none;  
+        line-height: 40px;   
+        overflow: hidden; 
+    } 
+        ul.navigation li { 
+            display: inline; 
+    } 
+        ul.navigation li a { 
+            padding-top: 3px; 
+            padding-bottom: 3px;  
+            background-color: #ccc;  
+            padding-left: 5px;  
+            padding-right: 5px;     
+            color: #000;  
+            text-decoration: none;  
+            line-height: 27px;  
+            overflow: hidden; 
+    } 
+    ul.navigation li a.selected { 
+        background-color: #9cf;  
+        border: 2px solid black;  
+        color: #000;  
+        padding-top: 7px; 
+    } 
+    ul.navigation li a:hover { 
+        background-color: #9cf;  
+        color: #000;  
+        padding-top: 7px; 
+        border: 1px solid black; 
+    } 
+ 
+    div.menu > div { 
+        padding: 5px;  
+        margin-top: 3px; 
+    } 
+    #un { 
+        margin-top: 25px;  
+        text-align: justify;  
+        border: 1px solid black;  
+        padding-left: 7px;           
+        padding-right: 7px; 
+    } 
+    #deux { 
+        margin-top: 25px;  
+        text-align: justify;  
+        border: 1px solid black;  
+        padding-left: 7px;             
+        padding-right: 7px; 
+    } 
+    #trois { 
+        margin-top: 25px;  
+        text-align: justify;  
+        border: 1px solid black;  
+        padding-left: 7px;              
+        padding-right: 7px; 
+    } 
+</style> 
+</head> 
+<body> 
+<div class="menu"> 
+    <ul class="navigation"> 
+        <li><a href="tabs.htm#un">page 1</a></li> 
+        <li><a href="tabs.htm#deux">page 2</a></li> 
+        <li><a href="tabs.htm#trois">page 3</a></li> 
+    </ul> 
+    <div id="un"> 
+        <h3>page 1</h3> 
+        <p>lorem ipsum dolor sit amet, consectetur adipisicing elit, 
+sed do eiusmod  
+        tempor incididunt ut labore et dolore magna aliqua. ut enim ad 
+minim veniam, quis nostrud exercitation ullamco laboris nisi ut  
+aliquip ex ea commodo consequat.</p> 
+    </div> 
+    <div id="deux"> 
+        <h3>page 2</h3> 
+        <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus  
+dolor auctor. Cum sociis natoque penatibus et magnis dis parturient  
+montes, nascetur ridiculus mus. Praesent commodo cursus magna, vel  
+scelerisque nisl consectetur et. Vestibulum id ligula porta felis  
+euismod semper. Donec id elit non mi porta gravida at eget metus.</p> 
+    </div> 
+    <div id="trois"> 
+        <h3>page 3</h3> 
+        <p>Sed posuere consectetur est at lobortis. Lorem ipsum dolor  
+sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus  
+varius blandit sit amet non magna. Donec sed odio dui. Lorem ipsum  
+dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit 
+amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet,  
+consectetur adipiscing elit.</p> 
+    </div> 
+</div> 
+</body> 
+</html>
+ 

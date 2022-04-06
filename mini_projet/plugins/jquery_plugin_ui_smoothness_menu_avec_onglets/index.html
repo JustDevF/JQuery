@@ -1,0 +1,59 @@
+<!--: Le menu avec onglets-->
+<!doctype html> 
+<html lang="fr"> 
+<head> 
+<meta charset="utf-8"> 
+<title>jQuery UI</title> 
+<!--sélectionner le thème smoothness -->
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/smoothness/jquery-ui.css"> 
+<!--charger le jQuery-->
+<script src="jquery.js"></script> 
+<!--Charger le plugin UI-->
+<script
+src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"
+integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY="
+crossorigin="anonymous"></script>
+<script> 
+    $(function() { 
+        //aplliquer le plugin, modèle menu avec onglets
+        $("#onglets").tabs(); 
+    }); 
+</script> 
+
+</head> 
+<body> 
+    <div id="onglets"> 
+        <ul> 
+            <li><a href="#onglet-1">Onglet 1</a></li> 
+            <li><a href="#onglet-2">Onglet 2</a></li> 
+            <li><a href="#onglet-3">Onglet 3</a></li> 
+        </ul> 
+        <div id="onglet-1"> 
+            <h3>Contenu onglet 1</h3> 
+            <p>Integer posuere erat a ante venenatis dapibus posuere velit 
+    aliquet. Cras justo odio, dapibus ac facilisis in, egestas eget quam. 
+    Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id 
+    ligula porta felis euismod semper. Praesent commodo cursus magna,  
+    vel scelerisque nisl consectetur et.</p> 
+        </div> 
+        <div id="onglet-2"> 
+            <h3>Contenu onglet 2</h3> 
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cum 
+    sociis natoque penatibus et magnis dis parturient montes, nascetur  
+    ridiculus mus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus 
+    dolor auctor. Curabitur blandit tempus porttitor. Donec sed odio 
+    dui.</p> 
+        </div> 
+        <div id="onglet-3"> 
+            <h3>Contenu onglet 3</h3> 
+            <p>Etiam porta sem malesuada magna mollis euismod. Sed posuere 
+    consectetur est at lobortis. Vestibulum id ligula porta felis euismod 
+    semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur 
+    et. Vestibulum id ligula porta felis euismod semper. Nullam quis risus 
+    eget urna mollis ornare vel eu leo. Integer posuere erat a ante venenatis 
+    dapibus posuere velit aliquet.</p> 
+        </div> 
+    </div> 
+    </body> 
+    </html>
+    

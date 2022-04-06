@@ -1,0 +1,50 @@
+<!--Confirmer une commande-->
+<!--Reprenons dans un champ de texte les éléments cochés d’un formulaire.-->
+<!doctype html> 
+<html lang="fr"> 
+<head> 
+<meta charset="utf-8"> 
+<title>jQuery</title> 
+<script src="jquery.js"></script> 
+<script> 
+    //Initialisation de jQuery et au clic sur une case à cocher.
+    $(document).ready(function() { 
+        $('input:checkbox[name=dessert]').click(function(){ 
+            //La variable check note que la case est cochée. La variable val récupère la valeur correspondante de la case.
+            var check = this.checked; 
+            var val = $(this).val(); 
+            //Préparation du contenu de la ligne de texte qui confirme la commande en reprenant la valeur initiale de l’attribut value.
+            var keys = $("input[name='commande']").val().split(', '); 
+            var newKeys = new Array(); 
+            var inArray = false; 
+            //Création d’un tableau (Array) appelé newKeys destiné à contenir les intitulés des cases cochées.
+            $.each(keys, function(i){ 
+                var key=this; 
+                if (key == val) { 
+                    if (check){ 
+                        newKeys.push(key); 
+                    } 
+                    inArray = true; 
+                    } else { 
+                    newKeys.push(key); 
+                } 
+            }); 
+            //Par la méthode JavaScript classique Array.push(), les intitulés des cases cochées sont ajoutés à la fin du tableau newKeys.
+            if (!inArray && check) newKeys.push(val); 
+            $("input[name='commande']").val(newKeys.join(' + ')); 
+        }); 
+    }); 
+</script> 
+</head> 
+<body> 
+<h3>Choisissez vos suppléments :</h3> 
+<form action=""> 
+    <p><input value="chocolat" type="checkbox" name="dessert"> Chocolat</p> 
+    <p><input value="chantilly" type="checkbox" name="dessert"> Chantilly</p> 
+    <p><input value="meringue" type="checkbox" name="dessert"> Meringue</p> 
+    <p><input value="biscuit" type="checkbox" name="dessert"> Biscuit</p> 
+    <h3>Votre commande : </h3> 
+    <p><input type="text" name="commande" size="45" value="Glace vanille"></p> 
+</form> 
+</body> 
+</html>

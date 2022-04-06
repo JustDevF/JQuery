@@ -1,0 +1,36 @@
+<!--Sélectionner toutes les cases à cocher-->
+<!--Très en vogue sur les sites récents, ce script offre la possibilité à l’utilisateur d’activer toutes les cases à cocher en une seule action.
+Affichage initial :
+-->
+<!doctype html> 
+<html lang="fr"> 
+<head> 
+<meta charset="utf-8"> 
+<title>jQuery</title> 
+<script src="jquery.js"></script> 
+<script> 
+    //Initialisation de jQuery, et au clic de la case à cocher permettant de sélectionner tous les éléments.
+    $(document).ready(function(){ 
+        $("#tous").click(function(){ 
+            //La variable checked_status note que la case est cochée.
+            var checked_status = this.checked; 
+            //La méthode each() passe en revue toutes les cases à cocher (input[name=case]) et coche celles-ci.
+            $("input[name=case]").each(function(){ 
+                this.checked = checked_status; 
+            }); 
+        });                     
+    }); 
+</script> 
+</head> 
+<body> 
+<p>La librairie jQuery est :<br></p> 
+<p><input type="checkbox" name="case">Concise</p> 
+<p><input type="checkbox" name="case">Souple</p> 
+<p><input type="checkbox" name="case">Compacte</p> 
+<p><input type="checkbox" name="case">Rapide</p> 
+<p><input type="checkbox" name="case">Compatible</p> 
+<hr> 
+<p><input type="checkbox" id="tous"><strong>Sélectionner tout</strong></p> 
+</body> 
+</html>
+ 

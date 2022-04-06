@@ -1,0 +1,32 @@
+<!--Ajouter une icône aux liens externes-->
+<!doctype html> 
+<html lang="fr"> 
+<head> 
+<meta charset="utf-8"> 
+<title>jQuery</title> 
+<script src="jquery.js"></script> 
+<script>
+    //chargement de DOM
+    $(document).ready(function() { 
+        //Pour identifier les liens externes, nous testons le nom de domaine de la page (location.hostname) par rapport au nom de domaine (this.hostname) des liens. Nous nous assurons que les deux ne correspondent pas (this.hostname !== location.hostname;).
+        $("a").filter(function() { 
+            return this.hostname !== location.hostname; 
+        }) 
+        //Ce filtre appliqué, le script insère après le lien 
+        .after('<img src="external.png" class="external">'); 
+    }); 
+</script> 
+<style> 
+    .external { 
+        border: none; 
+        margin-left: 10px; 
+    } 
+</style> 
+</head> 
+<body> 
+<p><a href="http://www.editions-eni.fr/" title="Lien externe"> 
+Editions Eni</a></p> 
+<p><a href="#">Lien interne</a></p> 
+<p><a href="#">Lien interne</a></p> 
+</body> 
+</html>

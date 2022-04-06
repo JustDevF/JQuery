@@ -1,0 +1,43 @@
+<!--Utilisation du plug-in infobulle-->
+<!doctype html> 
+<html lang="fr"> 
+<head> 
+<meta charset="utf-8"> 
+<title>jQuery</title> 
+<!--fichier jquery-->
+<script src="jquery.js"></script> 
+<!--fichier plugin infobulle-->
+<script src="jquery.mon_infobulle.js"></script> 
+<script> 
+    //chargement de DOM
+    $(document).ready(function(){ 
+        //ArrayList qui détermine les paramètres passés au plug-in, soit le décalage vertical, horizontal et le nom de la classe de style de la fenêtre infobulle.
+        var options = { 
+            offsetX: 30, 
+            offsetY: 5, 
+            infobullecss: "infobulle" 
+        };
+        //Pour les liens dotés de la classe info, le plug-in mon_infobulle est appelé.
+        $("a.info").mon_infobulle(options); 
+    }); 
+</script> 
+<style> 
+    .infobulle { 
+        width: 150px; 
+        padding: 3px; 
+        background-color: #9CF; 
+        border: black 1px solid; 
+        color: black; 
+    } 
+    a { 
+        color: black; 
+    } 
+</style> 
+</head> 
+<body> 
+<p><a href="#" rel="Explication du lien 1" class="info">Lien 1</a></p> 
+<p><a href="#" rel="Explication du lien 2" class="info">Lien 2</a></p> 
+<p><a href="#" rel="Explication du lien 3" class="info">Lien 3</a></p> 
+</body> 
+</html>
+ 

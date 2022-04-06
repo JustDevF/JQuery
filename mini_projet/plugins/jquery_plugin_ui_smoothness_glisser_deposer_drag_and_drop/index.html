@@ -1,0 +1,42 @@
+<!--Le glisser/déposer (drag/drop) est une opération devenue commune dans les pages web. Citons simplement comme exemple les sites commerciaux où l’on peut déplacer avec la souris l’image de l’article choisi pour la transférer dans le panier de la commande. -->
+<!doctype html> 
+<html lang="fr"> 
+<head> 
+<meta charset="utf-8"> 
+<title>jQuery UI</title> 
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/smoothness/jquery-ui.css"> 
+<script src="http://code.jquery.com/jquery-3.1.0.js"></script> 
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"
+integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY="
+crossorigin="anonymous"></script>
+<style> 
+    #box { 
+        width: 100px; height: 100px; 
+        padding: 10px; 
+        background: #9bafc3; 
+        float: left; 
+    } 
+    #drop { 
+        width: 150px; height: 150px; 
+        margin-left: 100px; 
+        padding-top: 15px; 
+        padding-left: 35px; 
+        float: left; 
+    } 
+</style> 
+<script> 
+    $(function() { 
+        $("#box").draggable(); 
+        $("#drop").droppable(); 
+    }); 
+</script> 
+</head> 
+<body> 
+<div id="box" class="ui-widget-content"> 
+    <p>Déplacez-moi</p> 
+</div> 
+<div id="drop" class="ui-widget-content"> 
+    <p>Déposez-moi ici !</p> 
+</div> 
+</body> 
+</html>

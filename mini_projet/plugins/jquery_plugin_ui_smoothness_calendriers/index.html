@@ -1,0 +1,27 @@
+<!--Les calendriers-->
+<!doctype html> 
+<html lang="fr"> 
+<head> 
+<meta charset="utf-8"> 
+<title>jQuery UI</title> 
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/smoothness/jquery-ui.css"> 
+<script src="http://code.jquery.com/jquery-3.1.0.js"></script> 
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"
+integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY="
+crossorigin="anonymous"></script>
+<script> 
+    $(function() { 
+        //Par défaut, le calendrier affiche les mois et jours en anglais. Il est nécessaire pour nous francophones de faire appel à un script supplémentaire pour un affichage en français.
+        //Les widgets de jQuery UI comportent de nombreuses options de configuration. Ainsi dans ce script firstDay: 1 permet de faire débuter la semaine le lundi et beforeShowDay: $.datepicker.noWeekends d’exclure de la sélection les samedis et dimanches.   
+        $("#calendrier").datepicker({ 
+            firstDay: 1, 
+            beforeShowDay: $.datepicker.noWeekends 
+        }); 
+    }); 
+</script> 
+</head> 
+<body> 
+<p><label for="calendrier">Date :</label> 
+<input type="text" id="calendrier"></p> 
+</body> 
+</html>

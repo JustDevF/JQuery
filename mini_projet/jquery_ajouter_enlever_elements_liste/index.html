@@ -1,0 +1,37 @@
+<!--Ajouter et enlever des éléments d’une liste-->
+<!doctype html> 
+<html lang="fr"> 
+<head> 
+<meta charset="utf-8"> 
+<title>jQuery</title> 
+<script src="jquery.js"></script> 
+<script> 
+    //chargement de DOM 
+    $(document).ready(function(){
+        //l'élement à ajouter. Il faut cependant ajouter un compteur pour incrémenter ou décrémenter le numéro associé à l’item.
+        var i = $('li').length + 1;
+        //Au clic sur le lien Ajouter un item, on ajoute, comme dernier élément, un élément <li> ... </li> à la liste non ordonnée.
+        $('a#add').click(function() { 
+            $('<li>Item ' + i + '</li>').appendTo('ul'); 
+            i++; 
+        }); 
+        //Au clic sur le lien Enlever un item, on supprime le dernier élément <li> ... </li> (li:last).
+        $('a#remove').click(function() { 
+            $('li:last').remove(); 
+            i--;      
+        }); 
+    }); 
+</script> 
+</head> 
+<body> 
+<ul> 
+    <li>Item 1</li> 
+    <li>Item 2</li> 
+    <li>Item 3</li> 
+    <li>Item 4</li> 
+    <li>Item 5</li> 
+</ul> 
+<p><a href="#" id="add">Ajouter un item</a></p> 
+<p><a href="#" id="remove">Enlever un item</a></p> 
+</body> 
+</html>

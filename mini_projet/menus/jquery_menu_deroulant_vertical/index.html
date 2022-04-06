@@ -1,0 +1,70 @@
+<!--Un menu déroulant vertical -->
+<!doctype html> 
+<html lang="fr"> 
+<head> 
+<meta charset="utf-8"> 
+<title>jQuery</title> 
+<script src="jquery.js"></script> 
+<script> 
+    //chargement de DOM
+    $(document).ready(function() { 
+        //Au clic sur le div dont la classe est chapitre.
+        $('div.chapitre').click(function() { 
+            //Le div dont la classe est items se referment (glissent vers le haut).
+            $('div.items').slideUp('normal');     
+            //Atteindre les éléments suivants (next) de l’élément sélectionné (this)
+            $(this).next().slideDown('normal'); 
+        }); 
+        //Les divisions items sont cachées afin que le menu se présente de façon refermée à l’ouverture de la page.
+        $("div.items").hide(); 
+    }); 
+</script> 
+<style> 
+    a { 
+        text-decoration: none; 
+        color: black; 
+    } 
+    .chapitre { 
+        width: 100px; 
+        background: #9cf; 
+        border-bottom: 1px solid black; 
+        cursor: pointer; 
+        text-align: center; 
+        border: 1px solid black; 
+    } 
+    .items { 
+        width: 100px; 
+        text-align: center; 
+        border: 1px solid black; 
+        display: none; 
+    } 
+</style> 
+</head> 
+<body> 
+<div class="chapitre">Chapitre 1</div> 
+<div class="items"> 
+    <a href="">Point 1</a><br> 
+    <a href="">Point 2</a><br> 
+    <a href="">Point 3</a> 
+</div> 
+<div class="chapitre">Chapitre 2</div> 
+<div class="items"> 
+    <a href="">Point 1</a><br> 
+    <a href="">Point 2</a> 
+</div>         
+<div class="chapitre">Chapitre 3</div> 
+<div class="items"> 
+    <a href="">Point 1</a><br> 
+    <a href="">Point 2</a><br> 
+    <a href="">Point 3</a><br> 
+    <a href="">Point 4</a> 
+</div> 
+<div class="chapitre">Chapitre 4</div> 
+<div class="items"> 
+    <a href="">Point 1</a><br> 
+    <a href="">Point 2</a><br> 
+    <a href="">Point 3</a>     
+</div> 
+</body> 
+</html>
+ 

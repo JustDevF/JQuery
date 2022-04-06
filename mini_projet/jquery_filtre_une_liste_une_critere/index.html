@@ -1,0 +1,65 @@
+<!--Filtrer une liste-->
+<!--Soit une liste de variétés de fruits. Au choix d’un élément de formulaire de type <select>, le script ne retiendra que les variétés d’un fruit spécifique (pomme, poire, raisin ou fraise).-->
+<!doctype html> 
+<html lang="fr"> 
+<head> 
+<meta charset="utf-8"> 
+<title>jQuery</title> 
+<script src="jquery.js"></script> 
+<script>  
+    //Au chargement et au clic du bouton Filtrer la liste.       
+    $(document).ready(function(){   
+        $("#bouton").click(function(){ 
+            //Le script charge dans la variable selection la valeur retenue par l’utilisateur des choix proposés dans la liste de sélection.
+            var selection = $("#categorie").val(); 
+            //Si le choix Toutes a été retenu, tous les éléments de la liste non ordonnée sont affichés selon un filtre portant sur la classe item.
+            if (selection == "toutes"){ 
+                $("li").filter(".item").show(); 
+            } else {  
+                //Si une autre valeur a été reprise dans la liste de sélection, la liste complète des items est cachée dans un premier temps. Ensuite, les éléments de la liste non ordonnée sont filtrés selon le critère stocké dans la variable selection. Ceux-ci sont alors affichés.
+                $("li").filter(".item").hide(); 
+                $("li").filter("."+selection).show(); 
+            }   
+        }); 
+    }); 
+</script> 
+<style> 
+    ul { 
+        list-style-type: none; 
+        margin: 0; 
+        padding: 0; 
+        width: 8em; 
+        border: 1px solid black; 
+    } 
+    li { 
+        padding-left : 5px; 
+    } 
+</style> 
+</head> 
+<body> 
+<p>Sélectionnez la catégorie : 
+<select id="categorie">  
+    <option selected="selected" value="toutes">Toutes</option>  
+    <option value="pomme">Pommes</option>  
+    <option value="poire">Poires</option> 
+    <option value="raisin">Raisins</option> 
+    <option value="fraise">Fraises</option> 
+</select> 
+</p> 
+<p><input id="bouton" type="button" value="Filtrer la liste"></p> 
+<ul> 
+    <li class="item pomme">Arine</li> 
+    <li class="item raisin">Perlette</li> 
+    <li class="item fraise">Marjolaine</li> 
+    <li class="item poire">Alexandrine</li> 
+    <li class="item fraise">Charlotte</li> 
+    <li class="item pomme">Violette</li> 
+    <li class="item pomme">Choupette</li> 
+    <li class="item raisin">Cardinal</li> 
+    <li class="item fraise">Mamie</li> 
+    <li class="item poire">Pérouille</li> 
+    <li class="item raisin">Calmeria</li> 
+</ul>     
+</body> 
+</html>
+ 

@@ -1,0 +1,56 @@
+<!--Animation sur un div-->
+<!--Au clic sur le bouton Lancer l’animation, la boîte Editions ENI se déplace vers la droite, s’agrandit et applique une opacité à 50 % :-->
+<!--Puis le texte s’affiche avec une taille de caractères plus grande, l’opacité passe à 100 % et une bordure très épaisse s’affiche à gauche de la boîte :-->
+<!--Enfin, le bouton "Réinitialiser" permet de revenir au point de départ de l’animation.-->
+
+<!doctype html> 
+<html lang="fr"> 
+<head> 
+<meta charset="utf-8"> 
+<title>jQuery</title> 
+<script src="jquery.js"></script> 
+<script> 
+    //Chargement de DOM
+    $(document).ready(function(){ 
+        //Au clic sur le bouton Lancer l’animation
+        $('#start').click(function(){
+            // La boîte box est déplacée vers la droite de 150 pixels(left: 150), sa largeur est portée à 200 pixels et son opacité diminuée de moitié. L’animation dure 1500 millisecondes.
+            $('#box').animate({left:150, 
+                width: "200px", 
+                opacity: 0.5 
+                }, 1500) 
+                //Puis, la taille de la police de caractères est agrandie.
+                .animate( { fontSize:"24px" } , 1000 ) 
+                //Ensuite, l’épaisseur de la bordure gauche est portée à 15 pixels.
+                .animate( { borderLeftWidth:"15px" }, 1000) 
+                //Et pour terminer, l’opacité est rétablie à la valeur 1.
+                .animate( { opacity: 1 }, 1000);
+            //Le clic sur le bouton Réinitialiser remet la boîte dans sa position initiale en annulant toutes les modifications réalisées sur la largeur, la position, l’opacité ainsi que la largeur de la bordure gauche. 
+            $("#reset").click(function(){ 
+                $("#box").css({width:"",left:"",fontSize:"", 
+opacity:"",borderWidth:""}); 
+            }); 
+        }); 
+    }); 
+</script> 
+<style> 
+    #box { 
+        position: relative;  
+        width: 110px;  
+        height: 25px;  
+        background-color: #9cf;  
+        margin: 20px 0px;  
+        padding-left: 20px;  
+        padding-right: 20px; 
+        padding-top: 5px; 
+        font: 0.75em Arial, sans-serif;  
+        border: 1px solid #0000c0; 
+    } 
+</style> 
+</head> 
+<body> 
+<input type="button" id="start" value="Lancer l'animation">  
+<input type="button" id="reset" value="Réinitialiser">  
+<div id="box">Editions Eni</div> 
+</body> 
+</html>

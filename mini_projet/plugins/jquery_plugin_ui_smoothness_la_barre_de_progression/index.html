@@ -1,0 +1,31 @@
+<!doctype html> 
+<html lang="fr"> 
+<head> 
+<meta charset="utf-8"> 
+<title>jQuery UI</title> 
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/smoothness/jquery-ui.css"> 
+<script src="http://code.jquery.com/jquery-3.1.0.js"></script> 
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"
+integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY="
+crossorigin="anonymous"></script>
+<style> 
+    #progress { 
+        width: 250px; 
+    } 
+</style> 
+</head> 
+<body> 
+<p>Barre de progression : </p><div id="progress"></div> 
+<script> 
+    $(function() { 
+        $("#progress").progressbar (); 
+        var value = 0; 
+        var timer = setInterval (function (){ 
+            $("#progress").progressbar("value", value); 
+            value++; 
+            if (value > 100) clearInterval(timer); 
+        }, 100); 
+    }); 
+</script> 
+</body> 
+</html>

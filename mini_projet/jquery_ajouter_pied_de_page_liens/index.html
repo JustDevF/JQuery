@@ -1,0 +1,26 @@
+<!--Ajouter un pied de page et des liens de retour-->
+<!doctype html> 
+<html lang="fr"> 
+<head> 
+<meta charset="utf-8"> 
+<title>jQuery</title>
+<script src="jquery.js"></script>  
+    <script> 
+        $(document).ready(function(){ 
+            $('<a id="top" name="top"></a>').prependTo('body'); 
+            $("p").after("<a href='#top'>Haut de page</a>"); 
+            $("#contenu").after("<div id='foot'><i>Notes de pied de page</i></div>"); 
+        }); 
+    </script>
+</head>
+<body> 
+<h2>Titre de la page</h2> 
+<div id="contenu"> 
+    <p>Lorem ipsum dolor sit amet...</p> 
+    <p>Praesent commodo cursus...</p> 
+    <p>Maecenas sed diam eget...</p> 
+    <p>Donec ullamcorper nulla...</p> 
+</div> 
+</body> 
+</html>
+ 

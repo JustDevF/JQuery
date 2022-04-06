@@ -1,0 +1,46 @@
+<!--Lorsque vous saisissez un mot de passe, les caractères saisis apparaissent sous forme de puces. Le fait de masquer ainsi les mots de passe n’accroît pas tellement la sécurisation de celui-ci mais augmente considérablement les saisies défectueuses dues à une faute de frappe. De nombreux sites vous permettent maintenant de dévoiler votre mot de passe, lors de sa saisie.-->
+
+<!DOCTYPE html> 
+<html class="no-js" lang="en-US"> 
+<head> 
+  <meta charset="utf-8"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1"> 
+  <title>hideShowPassword for jQuery</title> 
+  <!-- demo-specific styles --> 
+  <link rel="stylesheet" href="css/demo.css"> 
+  <!-- example style for inner toggle --> 
+  <link rel="stylesheet" href="css/example.wink.css"> 
+  <!-- custom modernizr build --> 
+  <script src="vendor/modernizr.custom.js"></script> 
+  <script>if(Modernizr.input.placeholder)document.getElementsByTagName
+('html')[0].className+=' inputplaceholder';</script> 
+</head> 
+<body> 
+<header> 
+    <h1><span class="for">Plugin</span> hideShowPassword<span class="for">  
+pour jQuery</span></h1> 
+</header> 
+<figure> 
+  <div class="login"> 
+    <label class="login-label" for="username-1">Nom d'utilisateur</label> 
+    <input class="login-field  login-field-username" id="username-1" type= 
+"text" placeholder="Nom d'utilisateur"> 
+    <label class="login-label" for="password-1">Mot de passe</label> 
+    <input class="login-field  login-field-password" id="password-1" type= 
+"password" placeholder="Mot de passe"> 
+  </div> 
+  <figcaption>Pour afficher votre mot de passe, cliquez sur l'oeil !
+</figcaption> 
+</figure> 
+ 
+<!-- including the jQuery dependency --> 
+<script src="vendor/jquery.min.js"></script> 
+<!-- including the plugin --> 
+<script src="hideShowPassword.min.js"></script> 
+<script> 
+    // Le mot de passe est caché par défaut 
+    $('#password-1').hidePassword(true); 
+</script> 
+</body> 
+</html>

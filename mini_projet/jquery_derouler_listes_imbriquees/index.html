@@ -1,0 +1,73 @@
+<!--Nous allons permettre de dérouler des listes imbriquées par un clic sur une image.-->
+<!doctype html> 
+<html lang="fr"> 
+<head> 
+<meta charset="utf-8"> 
+<title>jQuery</title> 
+<script src="jquery.js"></script> 
+<script> 
+    //Au chargement du DOM
+    $(document).ready(function() {
+        //Sélectionne tous les éléments de liste (<li>) qui possèdent une liste imbriquée (<ul>). 
+        $('li:has(ul)').click(function(){ 
+            //Si les listes imbriquées de cet élément (soit les descendants) sont cachées, l’image est changée en minus.gif et celles-ci sont déployées.
+            if ($(this).children().is(':hidden')) { 
+                $(this).css('list-style-image', 'url(minus.gif)').children().show(); 
+            } else { 
+                $(this).css('list-style-image', 'url(plus.gif)').children().hide(); 
+            } 
+            return false; 
+        }) 
+        //Pour les éléments sélectionnés par les lignes de code précédentes (li:has(ul)), le curseur prend la forme d’une main 
+        .css('cursor','pointer').click(); 
+        $('li:not(:has(ul))').css({ 'cursor': 'default','list-style-image':'none'}); 
+    }); 
+</script> 
+</head> 
+<body> 
+<ul> 
+    <li>Chapitre 1</li> 
+    <li>Chapitre 2</li> 
+    <li>Chapitre 3 
+        <ul> 
+            <li>Point 3.1</li> 
+            <li>Point 3.2 
+                <ul> 
+                    <li>Item 3.2.1</li> 
+                    <li>Item 3.2.2</li> 
+                    <li>Item 3.2.3 
+                        <ul> 
+                            <li>Sous-item 3.2.3.1</li> 
+                            <li>Sous-item 3.2.3.2</li> 
+                            <li>Sous-item 3.2.3.3</li> 
+                            <li>Sous-item 3.2.3.4</li> 
+                            <li>Sous-item 3.2.3.5</li> 
+                        </ul> 
+                    </li> 
+                </ul> 
+            </li> 
+            <li>Point 3.3</li> 
+            <li>Point 3.4 
+                <ul> 
+                    <li>Item 3.4.1</li> 
+                    <li>Item 3.4.2</li> 
+                    <li>Item 3.4.3</li> 
+                </ul> 
+            </li> 
+        </ul> 
+    </li> 
+    <li>Chapitre 4 
+        <ul> 
+            <li>Point 4.1</li> 
+            <li>Point 4.2 
+                <ul> 
+                    <li>Item 4.2.1</li> 
+                    <li>Item 4.2.2</li> 
+                </ul> 
+            </li> 
+        </ul> 
+    </li> 
+    <li>Chapitre 5</li> 
+</ul> 
+</body> 
+</html>

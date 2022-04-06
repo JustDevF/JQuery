@@ -1,0 +1,48 @@
+<!--Une icône de chargement-->
+<!--pour éviter que l’utilisateur ne soit désappointé par ces moments d’attente, le concepteur peut prévoir une petite icône indiquant que le chargement est en cours-->
+<!doctype html> 
+<html lang="fr"> 
+<head> 
+<meta charset="utf-8"> 
+<title>jQuery</title> 
+<script src="jquery.js"></script> 
+<script> 
+    //Initialisation de jQuery.
+    $(document).ready(function() {
+        //Au clic du bouton. 
+        $('#bouton').click(function() {
+            //Une requête AJAX est effectuée vers le fichier lorembis.htm et son contenu est inséré dans la division contenu
+            $('#contenu').hide().load('lorembis.html', function() {
+               // Un effet d’apparition progressive a été ajouté soit fadeIn(4000).
+                $(this).fadeIn(4000); 
+            }); 
+            return false; 
+        });
+        //L’image ajax-loader.gif incluse dans la division loading est insérée (insertBefore) avant la division contenu. 
+        $('<div id="loading"><img src="ajax-loader.gif" />&nbsp;</div>') 
+        .insertBefore('#contenu') 
+        .ajaxStart(function() { 
+            $(this).show(); 
+        }) 
+        .ajaxStop(function() { 
+            $(this).hide(); 
+        }); 
+    }); 
+</script> 
+<style> 
+    #contenu { 
+        width: 250px; 
+        border: solid 1px #000; 
+    } 
+    #loading { 
+        margin: 30px 0 0 300px; 
+        position: absolute; 
+/*          display: none;*/ 
+    } 
+</style> 
+</head> 
+<body> 
+<button id="bouton">Charger</button> 
+<div id="contenu">&nbsp;</div> 
+</body> 
+</html>

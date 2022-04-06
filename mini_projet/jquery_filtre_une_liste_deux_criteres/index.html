@@ -1,0 +1,78 @@
+<!--Filtrer une liste selon deux critères-->
+<!--Cette application est semblable à la précédente mais avec cette fois deux critères de sélection. Soit une liste de voitures. Une sélection portera sur l’année (2007, 2008, 2009) et une autre sur le type de carburant (essence ou diesel).-->
+<!doctype html> 
+<html lang="fr"> 
+<head> 
+<meta charset="utf-8"> 
+<title>jQuery</title> 
+<script src="jquery.js"></script> 
+<script>
+    //Au chargement et au clic du bouton.     
+    $(document).ready(function(){    
+        $("#bouton").click(function(){ 
+            //Nous créons une série de variables. La variable annee reprend le choix de la première liste de sélection.
+            var annee = $("#annee").val(); 
+            var carburant = $("#carburant").val(); 
+            var selecteur_annee = ''; 
+            var selecteur_carburant = ''; 
+            //Si la liste de sélection des années est positionnée sur Toutes les années et celle des carburants sur Tous les carburants, tous les éléments de la liste non ordonnée (.item) sont affichés.
+            if (annee == "toutes" && carburant == "tous"){ 
+                $(".item").show(); 
+                //Sinon, le script teste si la liste de sélection relative au carburant n’est plus positionnée sur Tous les carburants. Dans ce cas la variable selecteur_carburant contiendra un point (pour la classe) et le type de carburant retenu.
+            } else { 
+                if (carburant != "tous"){ 
+                    selecteur_carburant = '.' + carburant 
+                }         
+                if (annee != "toutes"){ 
+                    selecteur_annee = '.' + annee 
+                } 
+                $(".item").hide(); 
+                $("li"). filter(selecteur_carburant + selecteur_annee).show(); 
+            }     
+        }); 
+    }); 
+</script> 
+<style> 
+    ul { 
+        list-style-type: none; 
+        margin: 0; 
+        padding: 0; 
+        width: 9em; 
+        border: 1px solid black; 
+    } 
+    li { 
+        padding-left : 5px; 
+    } 
+</style> 
+</head> 
+<body> 
+<p>Sélectionnez l'année : <select id="annee">  
+<option selected="selected" value="toutes">Toutes les années</option> 
+<option value="2009">2009</option>  
+<option value="2008">2008</option>  
+<option value="2007">2007</option> 
+</select>  
+</p> 
+<p>Sélectionnez le carburant : <select id="carburant"> 
+<option selected="selected" value="tous" >Tous les carburants</option>  
+<option value="essence">Essence</option>  
+<option value="diesel">Diesel</option> 
+</select>  
+</p> 
+<p><input id="bouton" type="button" value="Filtrer la liste"></p> 
+<ul> 
+    <li class="item 2009 essence">Renault Twingo</li>  
+    <li class="item 2008 essence">Renault Clio</li>  
+    <li class="item 2007 diesel">Renault Laguna</li>  
+    <li class="item 2008 diesel">Renault Scenic </li>  
+    <li class="item 2007 diesel">Peugeot 607</li>  
+    <li class="item 2009 essence">Peugeot 207</li>  
+    <li class="item 2008 diesel">Peugeot 307</li>  
+    <li class="item 2008 diesel">Peugeot 407</li>  
+    <li class="item 2007 essence">Citroen C2</li>  
+    <li class="item 2008 diesel">Citroen C3 Picasso</li> 
+    <li class="item 2007 diesel">Citroen C4</li> 
+    <li class="item 2009 diesel">Citroen C6 </li> 
+</ul> 
+</body> 
+</html>

@@ -1,0 +1,22 @@
+<!--Les compteurs numériques sont familiers en informatique car ils se retrouvent dans les applications de bureau ou autres suites bureautiques. Ils ont même été intégrés par le HTML5 avec la balise <input type="number">. -->
+<!doctype html> 
+<html lang="fr"> 
+<head> 
+<meta charset="utf-8"> 
+<title>jQuery UI</title> 
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/smoothness/jquery-ui.css"> 
+<script src="http://code.jquery.com/jquery-3.1.0.js"></script> 
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"
+integrity="sha256-6XMVI0zB8cRzfZjqKcD01PBsAy3FlDASrlC8SxCpInY="
+crossorigin="anonymous"></script>
+<script> 
+    $(function() { 
+        $("#compteur").spinner(); 
+    }); 
+</script> 
+</head> 
+<body> 
+<br> 
+<input id="compteur" value="0"> 
+</body> 
+</html>

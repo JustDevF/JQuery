@@ -1,0 +1,47 @@
+<!--Au clic sur le bouton, les données saisies par l’utilisateur seront sérialisées et affichées :-->
+<!doctype html> 
+<html lang="fr"> 
+<head> 
+<meta charset="utf-8"> 
+<title>jQuery</title> 
+<script src="jquery.js"></script> 
+<script>
+    //Initialisation de jQuery.
+    $(document).ready(function(){
+        //Au clic du bouton. 
+        $('button').on("click", function() { 
+            //Le formulaire ($("form")) est sérialisé (serialize()) et stocké dans la variable str.
+            var str = $("form").serialize(); 
+            //Le contenu de la variable str est ajouté comme du texte (text(str)) dans le paragraphe identifié par resultat.
+            $("#resultat").text(str); 
+        }); 
+    }); 
+</script> 
+<style> 
+    #resultat { 
+        margin-top: 8px;  
+        font-size:14px;  
+        border: 1px solid black; 
+    } 
+</style> 
+</head> 
+<body> 
+<form action="#"> 
+    <p>Nom : <input type="text" name="nom" id="nom"></p> 
+    <p>Prénom : <input type="text" name="prenom" id="prenom"></p> 
+    <p>Mail : <input type="text" name="mail" id="mail"></p> 
+    <p> 
+    <input type="radio" name="masc">Masculin<br> 
+    <input type="radio" name="fem">Féminin 
+    </p> 
+    <p>Navigateur utilisé :<br> 
+    <input type="checkbox" name="ie">Internet Explorer<br> 
+    <input type="checkbox" name="ff">Firefox<br> 
+    <input type="checkbox" name="saf">Safari<br> 
+    <input type="checkbox" name="autre_nav">Autre navigateur 
+    </p> 
+</form> 
+<p><button>Sérialiser</button></p> 
+<p id="resultat">&nbsp;</p> 
+</body> 
+</html>

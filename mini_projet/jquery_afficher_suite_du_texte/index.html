@@ -1,0 +1,47 @@
+<!--propose au lecteur d’afficher la suite d’un article, après avoir cliqué sur le lien.-->
+
+<!doctype html> 
+<html lang="fr"> 
+<head> 
+<meta charset="utf-8"> 
+<title>jQuery</title> 
+<script src="jquery.js"></script> 
+<script> 
+    //chargement du DOM
+    $(document).ready(function() { 
+        //le second paragraphe est chargé dans la variable
+        var $paragraphe2 = $('p:eq(1)');
+        //Le second paragraphe est caché au chargement de la page
+        $paragraphe2.hide();
+
+        //Au clic sur le lien Afficher la suite..., si le second paragraphe est bien caché (hidden), il est alors affiché à une vitesse lente prédéfinie et le texte du lien est modifié en Masquer la suite....
+        $('a.suite').on("click",function() { 
+            if ($paragraphe2.is(':hidden')) { 
+                $paragraphe2.show('slow');  
+                $(this).text('Masquer la suite...'); 
+            } else { 
+                $paragraphe2.hide('slow'); 
+                $(this).text('Afficher la suite...'); 
+                return false; 
+            } 
+        }); 
+    }); 
+</script> 
+</head> 
+<body> 
+<h2>Regiones factae lingua Amano</h2> 
+<p> 
+Prodesse sonu primos quidem decere prodesse placeret adlocutus 
+addensque docens primos conperto quod consulens protectoribus. 
+</p> 
+<p> 
+Est quale Quod amantur ita congruamus utilitatis sensus quae  
+probitatis esset est potius ab in amant cogitatione bestiis quae 
+natura videamur quale quasi ita virtutis quam et et indigentia 
+Quod. 
+</p> 
+<div> 
+<a href="#" class="suite">Afficher la suite...</a>           
+</div> 
+</body> 
+</html>
